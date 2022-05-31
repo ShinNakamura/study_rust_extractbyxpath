@@ -47,6 +47,19 @@ cargo run -- "categoryInfo[2]/categoryName" <tests/input.xml
 # piyo
 ```
 
+なお、下記のように存在しない要素や範囲外の番号を指定しても
+コマンドラインでの実行上は
+
+- 正常終了
+- 単になにも返らない(空欄が返る)
+
+とする。
+
+```sh
+cargo run -- "aaa" <tests/input.xml
+cargo run -- "image[1000]" <tests/input.xml
+```
+
 ## 参考
 
 [Crate sxd_xpath](https://docs.rs/sxd-xpath/0.4.2/sxd_xpath/)
