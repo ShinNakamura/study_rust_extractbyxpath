@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <message>OK</message>
+    <description>
+        <![CDATA[<p>
+            <div class="foo">foo</div>
+        </p>]]></description>
+    <comment>&lt;p>bar&lt;/p></comment>
+    <images><image>image_1.jpg</image><image>image_2.jpg</image></images>
+</result>
