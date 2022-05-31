@@ -7,4 +7,14 @@
         </p>]]></description>
     <comment>&lt;p>bar&lt;/p></comment>
     <images><image>image_1.jpg</image><image>image_2.jpg</image></images>
+    <categories>
+        <categoryInfo>
+            <categoryId>100</categoryId>
+            <categoryName>hoge</categoryName>
+        </categoryInfo>
+        <categoryInfo>
+            <categoryId>101</categoryId>
+            <categoryName>piyo</categoryName>
+        </categoryInfo>
+    </categories>
 </result>

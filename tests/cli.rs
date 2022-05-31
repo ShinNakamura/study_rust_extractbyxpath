@@ -30,3 +30,16 @@ fn test_image1() -> TestResult {
     Ok(())
 }
 
+#[test]
+fn test_category_piyo() -> TestResult {
+    let input = Path::new("tests").join("input.xml");
+    let input = fs::read_to_string(input)?;
+    let mut cmd = Command::cargo_bin("extractbyxpath")?;
+    cmd.write_stdin(input)
+        .arg("categoryInfo[2]/categoryName")
+        .assert()
+        .success()
+        .stdout("piyo");
+    Ok(())
+}
+
