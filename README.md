@@ -20,11 +20,21 @@ Rust 勉強中の自習課題。
         </p>]]></description>
     <comment>&lt;p>bar&lt;/p></comment>
     <images><image>image_1.jpg</image><image>image_2.jpg</image></images>
+    <categories>
+        <categoryInfo>
+            <categoryId>100</categoryId>
+            <categoryName>hoge</categoryName>
+        </categoryInfo>
+        <categoryInfo>
+            <categoryId>101</categoryId>
+            <categoryName>piyo</categoryName>
+        </categoryInfo>
+    </categories>
 </result>
 ```
 
 コマンドラインの引数でXpathを指定。
-その際、Xpathの先頭につける`//`は省略する。
+その際、Xpathの先頭につける`//`は省略可能とする。
 
 ```sh
 cargo run -- "message" <tests/input.xml
@@ -32,6 +42,9 @@ cargo run -- "message" <tests/input.xml
 
 cargo run -- "image[1]" <tests/input.xml
 # image_1.jpg
+
+cargo run -- "categoryInfo[2]/categoryName" <tests/input.xml
+# piyo
 ```
 
 ## 参考
