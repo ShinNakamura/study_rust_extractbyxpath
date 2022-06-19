@@ -24,13 +24,13 @@ pub fn run() -> MyResult {
     let out = io::stdout();
     let mut out = BufWriter::new(out.lock());
     for xpath in xpaths.iter() {
-        let value = evaluate_xpath(&document, &xpath)?;
+        let value = evaluate_xpath(&document, xpath)?;
         if is_first_elm {
             is_first_elm = false;
         } else {
-            out.write(b"\n")?;
+            out.write_all(b"\n")?;
         }
-        out.write(value.string().as_bytes())?;
+        out.write_all(value.string().as_bytes())?;
     }
     out.flush()?;
     Ok(())
@@ -48,11 +48,12 @@ fn get_xpaths() -> Vec<String> {
             is_cmd_name = false;
             continue;
         }
-        let arg = if arg.starts_with("/") {
+        let arg = if arg.starts_with('/') {
             arg.to_string()
         } else {
             // 先頭に `"//"` を補って検索用Xpath指定にする
-            // コマンドラインでWindowsでの使用も考えると、
+            //
+            // GitBash コマンドラインで Windows での使用の場合:
             // 引数に (直感的には)`"//message"` と書きたいときでも 
             // `"///message"` を書かなければならない
             // かと思うと `"//image[1]"` はこのままでよい。
